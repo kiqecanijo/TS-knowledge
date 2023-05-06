@@ -11,9 +11,14 @@ const randomValues  = [
 //  create a function that receives as type paramete an array of any elements, then return it ramdomly using the same type
 //  from the parameter type
 
-// YOUR
-// CODE
-// HERE
+function getRandomElement<T>(arr: T[]): T {
+  const randomIndex = Math.floor(Math.random() * arr.length);
+  return arr[randomIndex];
+}
+
+const randomElement = getRandomElement(randomValues);
+console.log(randomElement);
+
 
 
 const numbers = [1,2,3,4,5] as const
