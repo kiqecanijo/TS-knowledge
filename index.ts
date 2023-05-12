@@ -37,30 +37,25 @@ function ordenarNumeros(numeros: readonly number[]): readonly number[] {
 const value = true
 //  create that doesnt receive any parameter type, but infer the type of the returned value
 
-function getType<T>(value: T, type?: T): T {
-  return type ?? value;
-}
 
+function getValue<T>(param: T): T {
+  return param;
+}
 
 //  create a function that infer the type of the returned value, but receives a parameter type, if the parameter type exist,
 //  use it to determine the returned type, if not, use the type of the given value
 //  you can check the definition od useSatate in react to see how it works.
 
-
-
-function getValue<T = typeof value>(type?: T): T {
-  if (type) {
-    return type;
-  } else {
-    return value as T;
-  }
+function myFunction<T>(arg?: T): T extends undefined ? typeof value : T {
+  return arg !== undefined ? arg as any : value;
 }
 
-const result = getValue<boolean>();
-console.log(typeof result); 
+const result1 = myFunction<string>(); 
+const result2 = myFunction<number>(); 
+const result3 = myFunction<boolean>(); 
+const result4 = myFunction<string | boolean>();
 
-const result1 = getValue();
-console.log(typeof result1);
+
 
   
 
