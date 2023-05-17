@@ -20,20 +20,13 @@ function getRandomElement<T>(arr: T[]): T {
   console.log(randomElement);
   
 
-
-const numbers = [1,2,3,4,5] as const
+const numbers = [2,3,4,5,1] as const
 
 // Create a function that receives an array of numbers as const, then type the returned type values sorted
 
-function ordenarNumeros(numeros: readonly number[]): readonly number[] {
-    return [...numeros].sort((a, b) => a - b);
-  }
-  
-  
-  const numerosOrdenados = ordenarNumeros(numbers);
-  console.log(numerosOrdenados);
-
-
+//YOUR
+//CODE
+//HERE
 
 const value = true
 //  create that doesnt receive any parameter type, but infer the type of the returned value
@@ -43,15 +36,11 @@ function getValue<D>(param: D): D {
   }
 
 //  create a function that infer the type of the returned value, but receives a parameter type, if the parameter type exist,
-//  use it to determine the returned type, if not, use the type of the given value
+//  use it to determine the returned type, if not, use the type of the given 
 //  you can check the definition od useSatate in react to see how it works.
 
-function myFunction<T>(arg?: T): T extends undefined ? typeof value : T {
-    return arg !== undefined ? arg as any : value;
+function myFunction<T>(arg: T): T {
+    return arg;
   }
   
-  const result1 = myFunction<string>(); 
-  const result2 = myFunction<number>(); 
-  const result3 = myFunction<boolean>(); 
-  const result4 = myFunction<string | boolean>();
   
